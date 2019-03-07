@@ -1,21 +1,21 @@
 'use strict';
 
-describe('Controller: PostController', () => {
+describe('Controller: PostController', function () {
     var controller;
 
-    beforeEach(() => {
+    beforeEach(function () {
         angular.mock.module('app');
     });
 
-    beforeEach(inject(['$controller', ($controller) => {
+    beforeEach(inject(['$controller', function ($controller) {
         controller = $controller('PostController');
     }]));
 
-    it('should not be undefined', () => {
+    it('should not be undefined', function () {
         expect(controller).toBeDefined();
     });
 
-    it('should contain varible query', () => {
+    it('should contain varible query', function () {
         expect(controller.query).toBeDefined();
         expect(controller.query.page).toEqual(1);
     });
