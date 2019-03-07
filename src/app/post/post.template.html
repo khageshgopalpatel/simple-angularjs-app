@@ -1,0 +1,25 @@
+<md-table-container>
+    <table md-table md-progress="$ctrl.promise">
+        <thead md-head md-order="$ctrl.query.order" md-on-reorder="$ctrl.getPosts">
+            <tr md-row>
+                <th md-column md-numeric md-order-by="id">Id</th>
+                <th md-column md-numeric md-order-by="userId"><span>User Id</span></th>
+                <th md-column md-order-by="title"><span>Title</span></th>
+                <th md-column>Body</th>
+            </tr>
+        </thead>
+        <tbody md-body>
+            <tr md-row ng-repeat="post in $ctrl.posts">
+                <td md-cell>{{post.id}}</td>
+                <td md-cell>{{post.userId}}</td>
+                <td md-cell>{{post.title}}</td>
+                <td md-cell>{{post.body}}</td>
+            </tr>
+        </tbody>
+    </table>
+</md-table-container>
+
+<md-table-pagination md-limit="$ctrl.query.limit" md-limit-options="[5, 10, 15]" md-page="$ctrl.query.page"
+    md-total="{{$ctrl.posts.count || 100}}" md-on-paginate="$ctrl.getPosts" md-page-select></md-table-pagination>
+
+    
